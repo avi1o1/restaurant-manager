@@ -1,0 +1,36 @@
+Transaction Time : 00:47:55
+User Name : Aviral
+User Phone Number : 9876543210
+User Address : saket
+Order : Kadhai-Paneer , Dessert , Final Amount : 950
+**************************************************
+Transaction Time : 11:45:24
+User Name : Anshu
+User Phone Number : 9935837593
+User Address : green park
+Order : Kadhai-Paneer , Final Amount : 500
+**************************************************
+Transaction Time : 20:25:55
+User Name : Vivek
+User Phone Number : 9859475864
+User Address : saket
+Order : Kadhai-Paneer , Dessert , Final Amount : 950
+**************************************************
+Transaction Time : 23:15:12
+User Name : Ridhima
+User Phone Number : 9348567204
+User Address : palika milan
+Order : Butter-Chicken-Masala, Gulab Jamun, Final Amount : 870
+**************************************************
+Transaction Time : 23:16:46
+User Name : Shrey
+User Phone Number : 9458245045
+User Address : sarojini nagar
+Order : Kadhai-Paneer, Final Amount : 500
+**************************************************
+Transaction Time : 22:45:32
+User Name : Pushan
+User Phone Number : 9845672845
+User Address : saket
+Order : Kadhai-Paneer , Final Amount : 500
+**************************************************

@@ -1,0 +1,14 @@
+Transaction Time : 00:49:02
+User Name : Sagar
+User Phone Number : 1234567890
+User Address : hauz khas
+No. of customers : 3
+Order : Butter-Chicken-Masala , Masala-Dosa , Gulab-Jamun , Final Amount : 1020
+**************************************************
+Transaction Time : 00:52:47
+User Name : Pushan
+User Phone Number : 9834572375
+User Address : chanakyapuri
+No. of customers : 3
+Order : Kadhai-Paneer , Final Amount : 500
+**************************************************
