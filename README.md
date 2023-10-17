@@ -23,7 +23,7 @@ This database can be further used to enhance the working, servicing and manageme
 experience. And, with our program, the restaurant would come one step closer to achieve this milestone. And, with future full of Artificial
 Intelligence, our project will make the restaurant the torch-bearers for others, and lead this race of revolution.
 
-And, that's what a successful businessman wants, more profits with the minimum effort. And, we take this to a completely next level with our 'SinghBot'.
+And, that's what a successful businessman wants, more profits with the minimum effort. And, we take this to a completely next level.
 
 =============================================<br>
 You can view our detailed presentation at :<br>
