@@ -1,12 +1,7 @@
 """
 
-Basic Intro of the Code :
-So, this is a basic (prototype) software that we would provide to the Restaurant. This software, not only provides the
-user a variety odf services at the comfort and safety of his home, but also reduce the work-load at the restaurant. And,
-that's what a Manager needs the most, when he has less employees, but more customers.
-
-And, if making the work easier was not enough, we have also added numerous services that will attract more customers,
-more money, more profit, but less effort, because the code is here to help you, for nearly every service.
+This is a basic (prototype) software that we would provide to the Restaurant. This software aims to provides the
+user a variety of service, while at the same time reducing the human efforts and work-load at the restaurant.
 
 The manager can sit in his room, probably watch some NETFLIX show, while this software increases his profits, and saves
 the money spent for more workers. So, not only are we solving the problem, but also brings you one step closer to
@@ -20,6 +15,7 @@ import string
 import random
 from collections import Counter
 
+
 # Initial Greetings
 print('*' * 75)
 print("\t\t  Welcome to 'The Singh Restaurant'")
@@ -28,15 +24,27 @@ print('*' * 75)
 
 
 # Defining Functions
-def space():                                                  # Function for spacing out 2 commands.
+def space():
+    """
+    Providing breaks while printing data on console.
+    """
+    
     print('*' * 75)
 
 
-def error():                                                  # Function to be called, if the input is bogus.
+def error():
+    """
+    Error texts, in case of bogus input.
+    """
+    
     print("Oops, something went wrong. Please try again")
 
 
-def ask_data():                                               # Function to collect user data.
+def ask_data():
+    """
+    Collect user data.
+    """
+    
     print("\t  We would like to know some information from you,")
     print("\t   in order to give you a better user experience.")
     print('*' * 75)
@@ -48,11 +56,17 @@ def ask_data():                                               # Function to coll
     return naam, p, pos
 
 
-def ask_query():                                              # User's Query Solving Function
+def ask_query():
+    """
+    User's FAQ / Query Resolving Function.
+    TODO : Add some sort of text recognition to make the program smart
+    """
+    
     ques = input("What is your query (enter 'Q' to quit) ? ")
 
     if ques.casefold() != 'q':
         space()
+        
         if ('time' in ques.casefold()) or ('timing' in ques.casefold()) or ('timings' in ques.casefold()):
             print("The restaurant is open from 10AM in the morning to 10PM on the evening, on all 7 days of the week.")
             space()
@@ -72,12 +86,12 @@ def ask_query():                                              # User's Query Sol
             ask_query()
 
         elif ('safety' in ques.casefold()) or ('covid' in ques.casefold()) or ('cleanliness' in ques.casefold()):
-            print("Safety of our customers is our No. 1 priority. At Singh’s, we take food safety"
-                  "\nconcerns very seriously, and understand that food safety is on everyone’s mind"
-                  "\nduring this time. In addition to offering contactless delivery, we are adhering"
-                  "\nto the highest cleanliness standards in the industry. And, what's better than"
-                  "\nthe AVGPTFC cleanliness and safety award, to prove our dedication to keep the"
-                  "\nfood,not only tasty, but healthy and safe, too.")
+            print("Safety of our customers is our No. 1 priority. At Singh’s, we take food safety \n"
+                  "concerns very seriously, and understand that food safety is on everyone’s mind \n"
+                  "during this time. In addition to offering contactless delivery, we are adhering \n"
+                  "to the highest cleanliness standards in the industry. And, what's better than \n"
+                  "the AVGPTFC cleanliness and safety award, to prove our dedication to keep the \n"
+                  "food,not only tasty, but healthy and safe, too.")
 
             space()
             ask_query()
@@ -93,52 +107,67 @@ def ask_query():                                              # User's Query Sol
         finalmessage()
 
 
-def order(cost):                                         # Function to process the order, and calculate the final price.
+def order(cost):
+    """
+    Processing orders [ Calculations / Billing / Storing / Repeat ]
+    """
+
+    # Menu
     food = {500: "Kadhai-Paneer",
             750: "Butter-Chicken-Masala",
             150: "Masala-Dosa",
             120: "Gulab-Jamun",
             450: "Dessert"}
 
+    # Taking order
     print("We serve the following mouth-watering delights: ")
     print("750 : Butter Chicken Masala (with 5 rotis)")
     print("500 : Kadhai Paneer (with 5 Rotis)")
     print("150 : Masala Dosa (with Sambar and Chutney)")
     print("120 : Gulab Jamun (2 pieces)")
     print("450 : Dessert (Chocolate Truffle Ice-cream)")
-    print("F : Finalise Order")
-
-    ag = input("\nPlease enter the respective code for the dish : ")
+    print("F : Finalise Order\n")
+    ag = input("Please enter the respective code for the dish : ")
 
     if ag.casefold() == 'f':
+        # Finalising Order
+        
         space()
         print("Your final order is as follows:")
         for b in order_list:
             print(b)
 
-        if offer is not None:
+        if offer: # is not None
+            # Applying offer, if any
             payable = (offer // 100) * cost
             print("The final payable amount is {}.".format(str(payable)))
             var = payable
 
         else:
+            # Final billing amount
             print("The final payable amount is {}.".format(str(cost)))
             var = cost
 
         space()
         return var, order_list
+        # Order Completed :)
 
     elif int(ag) in [500, 750, 150, 120, 450]:
         order_list.append(food[int(ag)])
         cost += int(ag)
         var_cost, var_order = order(cost)
         return var_cost, var_order
+        # Added to Cart
 
     else:
         error()
 
 
-def code():                                               # Generating promo codes for customers
+def code():
+    """
+    Generating promo codes
+    """
+    
     randomiser = string.ascii_uppercase
     s1 = random.choice(randomiser)
     s2 = random.choice(randomiser)
@@ -149,13 +178,18 @@ def code():                                               # Generating promo cod
     promo = s1 + s2 + s3 + s4 + s5 + s6
 
     with open('PromoCodes.txt', 'a') as promos:
+        # Adding promocode to database
         print(promo, end=' ', file=promos)
 
-    print("Here's a small gift from us for when you feast with us again : {}. Use it the"
-          "\nnext time you visit us, and get a chance to avail a discount for upto 50% off.".format(promo))
+    print("\t Here's a small gift from us for when you feast with us again : {}. \n"
+          "Use it the next time you visit us, and get a chance to avail a discount for upto 50% off.".format(promo))
 
 
-def finalmessage():                                       # Function to print the final goodbye message.
+def finalmessage():
+    """
+    Function to print the final goodbye message.
+    """
+    
     print('*' * 75)
     print("\t\tThank You for choosing 'The Singh Restaurant'")
     print("\tHope the food and service was as good as our customers")
@@ -163,13 +197,14 @@ def finalmessage():                                       # Function to print th
     print('*' * 75)
 
 
-# Main Program
-with open('Earnings.txt', 'r') as earnings:            # Extracting the current earnings from the restaurant's database.
+### Main Program Starts
+
+with open('Earnings.txt', 'r') as earnings:                         # Extracting the current earnings from the restaurant's database.
     for val in earnings:
         net_earning = int(val)
 earnings.close()
 
-with open('Vacancy.txt', 'r') as vacant:            # Extracting the current earnings from the restaurant's database.
+with open('Vacancy.txt', 'r') as vacant:                            # Extracting the current earnings from the restaurant's database.
     for seats in vacant:
         rem_seat = int(seats)
 earnings.close()                                                    # Max number of dine-in customers is 25
@@ -181,7 +216,7 @@ with open('PromoCodes.txt', 'r') as promocode:                      # Extracting
 promocode.close()
 
 available_slots = []
-with open('ParkingSlots.txt', 'r') as slots:                      # Extracting available parking slots from database.
+with open('ParkingSlots.txt', 'r') as slots:                        # Extracting available parking slots from database.
     for slot in slots:
         available_slots = slot.split()
 slots.close()
@@ -226,7 +261,7 @@ if service == 1:                                                     # If the us
     finalmessage()
 
 elif service == 2:                                                   # If th user wants to dine-in
-    name, ph, loc = ask_data()                                  # Asking user's data
+    name, ph, loc = ask_data()                                       # Asking user's data
     c = int(input("No. of customers : "))
     res_date = input("Date of reservation (DD/MM/YYYY): ")
     res_time = input("Starting of the time of Reservation (only 1 hour reservations can be confirmed) : ")
@@ -257,7 +292,7 @@ elif service == 2:                                                   # If th use
     order_list = []
     offer = None
     bill = 0
-    final_cost, final_order = order(int(bill))                       # Calling the function, to place the order
+    final_cost, final_order = order(int(bill))                        # Calling the function, to place the order
 
     try:
         print("Your vehicle ({}) will be parked by our official at '{}' slot.".format(car_num, parking))
@@ -265,7 +300,7 @@ elif service == 2:                                                   # If th use
     except NameError:
         pass
 
-    with open('DineData.txt', 'a') as DineData:                      # Saving user data in our data-storages.
+    with open('DineData.txt', 'a') as DineData:                       # Saving user data in our data-storages.
         clock = time.strftime("%H:%M:%S", time.localtime())
         print("Transaction Time : " + clock, file=DineData)
         print("User Name : " + name, file=DineData)
@@ -279,7 +314,7 @@ elif service == 2:                                                   # If th use
         print('*' * 50, file=DineData)
 
     net_earning += final_cost
-    with open('Earnings.txt', 'w') as earnings:                       # Updating Logs
+    with open('Earnings.txt', 'w') as earnings:                        # Updating Logs
         print(net_earning, file=earnings)
 
     rem_seat -= 1
@@ -289,10 +324,10 @@ elif service == 2:                                                   # If th use
     code()
     finalmessage()
 
-elif service == 3:                                                    # Giving offers, is an old trick to attract
-    user_code = input("Enter your promo code here : ")                # more customers, and that's what we do, to help
-    if user_code in code_list:                                        # the restaurant widen its service area and also
-        x = random.randint(1, 100)                                    # keep hold of its customers.
+elif service == 3:                                                     # Giving offers, is an old trick to attract
+    user_code = input("Enter your promo code here : ")                 # more customers, and that's what we do, to help
+    if user_code in code_list:                                         # the restaurant widen its service area and also
+        x = random.randint(1, 100)                                     # keep hold of its customers.
 
         if x == 69:
             offer = 50
@@ -306,21 +341,21 @@ elif service == 3:                                                    # Giving o
             offer = None
             print("Oh, not your day today. Better Luck Next Time.")
 
-        if offer is not None:                                             # Just recalling the services 1 and services
-            print("We provide you with the following services")           # 2, but with the offer this time.
+        if offer is not None:                                            # Just recalling the services 1 and services
+            print("We provide you with the following services")          # 2, but with the offer this time.
             print("1 : Order Placement (For Delivery and Takeaway Only)")
             print("2 : Reserving Seat (Order Placement Included)")
             offer_service = int(input("\nHow may we help you? (use the numeric code for the respective service) : "))
             space()
 
             if offer_service == 1:
-                name, ph, loc = ask_data()                                # Asking user's data
+                name, ph, loc = ask_data()                               # Asking user's data
                 space()
                 order_list = []
                 bill = 0
-                final_cost, final_order = order(bill)                     # Placing Order
+                final_cost, final_order = order(bill)                    # Placing Order
 
-                with open('DeliveryData.txt', 'a') as DeliveryData:       # Storing data
+                with open('DeliveryData.txt', 'a') as DeliveryData:      # Storing data
                     clock = time.strftime("%H:%M:%S", time.localtime())
                     print("Transaction Time : " + clock, file=DeliveryData)
                     print("User Name : " + name, file=DeliveryData)
@@ -333,11 +368,11 @@ elif service == 3:                                                    # Giving o
                     print('*' * 50, file=DeliveryData)
 
                 net_earning += final_cost
-                with open('Earnings.txt', 'w') as earnings:               # Updating Logs
+                with open('Earnings.txt', 'w') as earnings:              # Updating Logs
                     print(net_earning, file=earnings)
 
             elif offer_service == 2:
-                name, ph, loc = ask_data()                                # Asking user's data
+                name, ph, loc = ask_data()                               # Asking user's data
                 c = int(input("No. of customers : "))
                 res_date = input("Date of reservation (DD/MM/YYYY): ")
                 res_time = input("Starting of the time of Reservation (only 1 hour reservations can be confirmed) : ")
@@ -349,9 +384,9 @@ elif service == 3:                                                    # Giving o
                 space()
                 order_list = []
                 bill = 0
-                final_cost, final_order = order(int(bill))                # Placing Order
+                final_cost, final_order = order(int(bill))               # Placing Order
 
-                with open('DineData.txt', 'a') as DineData:               # Storing Data
+                with open('DineData.txt', 'a') as DineData:              # Storing Data
                     clock = time.strftime("%H:%M:%S", time.localtime())
                     print("Transaction Time : " + clock, file=DineData)
                     print("User Name : " + name, file=DineData)
@@ -365,7 +400,7 @@ elif service == 3:                                                    # Giving o
                     print('*' * 50, file=DineData)
 
                 net_earning += final_cost
-                with open('Earnings.txt', 'w') as earnings:               # Updating Logs
+                with open('Earnings.txt', 'w') as earnings:              # Updating Logs
                     print(net_earning, file=earnings)
 
                 rem_seat -= 1
@@ -602,7 +637,4 @@ else:
 
 final = input()
 
-# And that's pretty much it.
-'''
-And, its a 609-liner.
-'''
+# And that's pretty much it :)
