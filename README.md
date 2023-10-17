@@ -26,7 +26,7 @@ Intelligence, our project will make the restaurant the torch-bearers for others,
 And, that's what a successful businessman wants, more profits with the minimum effort. And, we take this to a completely next level with our 'SinghBot'.
 
 =============================================<br>
-You can view our detailed presentation at :
-https://docs.google.com/presentation/d/1J9Ppanor7xwIbAQ0Dp68fqbDfDq5D-gjgNZTObh-kgI/edit?usp=sharing
+You can view our detailed presentation at :<br>
+https://docs.google.com/presentation/d/1J9Ppanor7xwIbAQ0Dp68fqbDfDq5D-gjgNZTObh-kgI/edit?usp=sharing<br>
 =============================================<br>
 
