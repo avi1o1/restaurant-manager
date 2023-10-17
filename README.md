@@ -15,9 +15,9 @@ a range of services. Some of these services are as follows :
 And, if that wasn't enough, we also provide the a wide range of management services, that the staff can access special access key.
 Some of these admin-exclusive services are:
   1. Providing Net Expenses and Incomes, based on the orders placed.
-  2. Easily-Accessible Database (just 2 keystrokes), that provide them all the neccesary data ranging from customer's information, to customer's feedback,
+  2. Restaurant's Speciality (Most Ordered Dish).
+  3. Easily-Accessible Database (just 2 keystrokes), that provide them all the neccesary data ranging from customer's information, to customer's feedback,
      from Reservation Plans to the Valet Services Data. (And, we all know, how important data management is, in today's world)
-  3. Restaurant's Speciality (Most Ordered Dish).
 
 This database can be further used to enhance the working, servicing and management of the restaurant, in order to give the customers the best-in-class
 experience. And, with our program, the restaurant would come one step closer to achieve this milestone. And, with future full of Artificial
